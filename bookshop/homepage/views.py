@@ -1,6 +1,8 @@
 import django.http
 import django.views
+import django.shortcuts
+
 
 class Home(django.views.View):
     def get(self, request, *args, **kwaigs):
-        return django.http.HttpResponse('Hello! It is the best bookshop ever')
+        return django.shortcuts.render(request, "home.html")
