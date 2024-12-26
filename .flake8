@@ -1,4 +1,4 @@
 [flake8]
 ignore = E226,E302,E41
-max-line-length = 120
+max-line-length = 91
 exclude = .git,__pycache__,docs/,*.pyc,*.egg-info,.eggs,venv
