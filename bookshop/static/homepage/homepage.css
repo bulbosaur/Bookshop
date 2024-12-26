@@ -1,5 +1,7 @@
 body {
     background-color: #e3f1f1;
+    margin: 0;
+    padding: 0;
 }
 
 .main-title {
@@ -12,4 +14,3 @@ body {
     margin: auto;
     padding: 0 20px;
 }
-
