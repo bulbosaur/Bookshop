@@ -5,4 +5,4 @@ import django.shortcuts
 
 class Home(django.views.View):
     def get(self, request, *args, **kwaigs):
-        return django.shortcuts.render(request, "home.html")
+        return django.shortcuts.render(request, "index.html")
