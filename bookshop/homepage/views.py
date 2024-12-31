@@ -6,9 +6,11 @@ import catalog.models
 
 class Home(django.views.View):
     def get(self, request, *args, **kwaigs):
-        book_one = django.shortcuts.get_object_or_404(catalog.models.Book, id=1)
+        popular_products = catalog.models.Book.objects.all().order_by("id")[:3]
         return django.shortcuts.render(
             request,
             "index.html",
-            context={"title_one": book_one.title, "price_one": book_one.price}
+            context={
+                'popular_products': popular_products
+            }
         )

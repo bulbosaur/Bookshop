@@ -1,7 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1 class="main-title">Добро пожаловать на сайт</h1>
-  <p class="product-preview-title">{{title_one}}</p>
-  <p class="product-preview-price">{{price_one}}</p>
+  {% comment %} <h1 class="main-title">Добро пожаловать на сайт</h1> {% endcomment %}
+  <section class="popular-products">
+    <div class="container">
+        <h1 class="second-title">Популярные товары</h1>
+        <div class="products-grid">
+            {% for product in popular_products %}
+                <div class="product-card">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    {% endif %}
+                    <h3>{{ product.title }}</h3>
+                    <p class="price">{{ product.price }} ₽</p>
+                    <a href="{% url 'item' product.id %}" class="btn">Подробнее</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}
