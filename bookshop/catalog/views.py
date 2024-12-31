@@ -10,7 +10,6 @@ class ItemList(django.views.View):
 
     def get(self, request, *args, **kwaigs):
         return django.http.HttpResponse("Books")
-        # return django.shortcuts.render("book_list.html")
 
 
 class Item(django.views.View):

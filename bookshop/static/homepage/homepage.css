@@ -8,9 +8,18 @@ body {
     font-family: "Dela Gothic One", serif;
     font-weight: 400;
     font-style: normal;
-    color: #ee6856;
+    color: #000000;
     font-size: 50px;
     text-align: center;
     margin: auto;
     padding: 0 20px;
+}   
+
+.product-preview-title {
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #000000;
+    font-size: 40px;
 }
