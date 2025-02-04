@@ -64,6 +64,7 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             "templates",
+            "templates\\about",
             "templates\\homepage",
             "templates\\catalog",
         ],

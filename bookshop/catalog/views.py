@@ -6,7 +6,6 @@ import catalog.models
 
 
 class ItemList(django.views.View):
-
     def get(self, request, *args, **kwargs):
         catalog_book = catalog.models.Book.objects.all()
         return django.shortcuts.render(

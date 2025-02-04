@@ -1,3 +1,7 @@
-# from django.shortcuts import render
+import django.shortcuts
+import django.views
 
-# Create your views here.
+
+class AboutSite(django.views.View):
+    def get(self, request, *args, **kwargs):
+        return django.shortcuts.render(request, "about.html")
