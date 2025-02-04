@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
 <html lang="ru">
-<body>
-    <main>
-        <h1>{{ title }}</h1>
-        <p>{{ description }}</p>
-    </main>
-</body>
 
+{% block content %}
+<body>
+  <main>
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+  </main>
+</body>
+{% endblock %}

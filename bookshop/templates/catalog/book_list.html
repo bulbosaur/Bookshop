@@ -2,10 +2,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Publishers</h2>
-    <ul>
-        {% for book in object_list %}
-            <li>{{ .title }}</li>
-        {% endfor %}
-    </ul>
+  <h2>Каталог книг</h2>
+  <ul>
+    {% for book in catalog_book %}
+      <li><a href="{% url 'item' book.id %}">{{ book.title }}</a></li>
+    {% endfor %}
+  </ul>
 {% endblock %}
