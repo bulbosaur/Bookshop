@@ -24,7 +24,7 @@ pip install -r requirements/prod.txt  # install production dependencies
 4. Create .env file:
 ```bash
 DEBUG=true
-SECRET_KEY="True"
+SECRET_KEY="your_key_12345"
 ```
 
 5. Apply migrations:

@@ -26,7 +26,7 @@ pip install -r requirements/prod.txt  # установка продакшн за
 4. Создайте файл .env:
 ```bash
 DEBUG=true
-SECRET_KEY="True"
+SECRET_KEY="your_key_12345"
 ```
 
 5. Примените миграции:
