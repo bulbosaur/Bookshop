@@ -21,7 +21,11 @@ pip install -r requirements/dev.txt   # install development dependencies
 pip install -r requirements/prod.txt  # install production dependencies
 ```
 
-4. Create .env file and configure environment variables:
+4. Create .env file:
+```bash
+DEBUG=true
+SECRET_KEY="True"
+```
 
 5. Apply migrations:
 ```bash
