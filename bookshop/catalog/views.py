@@ -21,5 +21,5 @@ class Item(django.views.View):
         return django.shortcuts.render(
             request,
             "book_page.html",
-            context={"title": book.title, "description": book.description},
+            context={"title": book.title, "description": book.description, "main_img": book.main_photo},
         )
