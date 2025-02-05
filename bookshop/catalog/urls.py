@@ -1,14 +1,10 @@
-import django.conf
+import django.contrib
 import django.urls
 
-import catalog.views
-
-from django.conf.urls.static import static
 
 urlpatterns = [
-    django.urls.path("", catalog.views.ItemList.as_view(), name="item_list"),
-    django.urls.path("<int:item_id>/", catalog.views.Item.as_view(), name="item"),
+    django.urls.path("admin/", django.contrib.admin.site.urls),
+    django.urls.path("", django.urls.include("homepage.urls")),
+    django.urls.path("catalog/", django.urls.include("catalog.urls")),
+    django.urls.path("about/", django.urls.include("about.urls")),
 ]
-
-if django.conf.settings.DEBUG:
-    urlpatterns += static(django.conf.settings.MEDIA_URL, document_root=django.conf.settings.MEDIA_ROOT)
