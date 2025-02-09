@@ -9,4 +9,5 @@ urlpatterns = [
     django.urls.path("", django.urls.include("homepage.urls")),
     django.urls.path("catalog/", django.urls.include("catalog.urls")),
     django.urls.path("about/", django.urls.include("about.urls")),
+    django.urls.path("account/", django.urls.include("account.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
