@@ -1,20 +1,35 @@
-import django.contrib
-import django.contrib.auth
-import django.contrib.auth.forms
-import django.shortcuts
-import django.views
+from django.views import View
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+
+from django.views.generic.detail import DetailView
+from django.shortcuts import get_object_or_404
+
+from .models import Profile
 
 
-class SignUp(django.views.View):
+class SignUp(View):
     def get(self, request, *args, **kwargs):
-        if request.method == "POST":
-            form = django.contrib.auth.forms.UserCreationForm(request.POST)
-            if form.is_valid():
-                user = form.save()
-                django.contrib.auth.login(request, user)
-                return django.shortcuts.redirect("home")
-        else:
-            form = django.contrib.auth.forms.UserCreationForm()
-        return django.shortcuts.render(
-            request, "registration/signup.html", context={"form": form}
-        )
+        form = UserCreationForm()
+        return render(request, "registration/signup.html", {"form": form})
+
+    def post(self, request, *args, **kwargs):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("home")
+        return render(request, "registration/signup.html", {"form": form})
+
+
+class ShowProfilePage(DetailView):
+    model = Profile
+    template_name = "account/user_profile.html"
+    context_object_name = "page_user"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ShowProfilePage, self).get_context_data(*args, **kwargs)
+        page_user = get_object_or_404(Profile, id=self.kwargs["pk"])
+        context["page_user"] = page_user
+        return context

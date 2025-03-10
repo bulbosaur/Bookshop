@@ -18,5 +18,10 @@ urlpatterns = [
         ),
         name="logout",
     ),
-    django.urls.path( "signup/", account.views.SignUp.as_view(), name="signup")
+    django.urls.path("signup/", account.views.SignUp.as_view(), name="signup"),
+    django.urls.path(
+        "user_profile/<int:pk>/",
+        account.views.ShowProfilePage.as_view(),
+        name="user_profile",
+    ),
 ]

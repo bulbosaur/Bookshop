@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="header-bar">
+    <h1>Profile</h1>
+    <a href="{% url 'tasks' %}">&#8592; Back</a>
+</div>
+
+<div class="card-body">
+    {% if page_user.profile_pic %}
+        <img src="{{ page_user.profile_pic.url }}" height=100 width=100><br><br>
+    {% else %}
+        <img src="{% static 'base/images/profile/user.png' %}" height=100 width=100><br><br>
+    {% endif %}
+    
+    <p><strong>Username:</strong> {{ page_user.user.username }}</p><br><br>
+    <p><strong>Bio:</strong> {{ page_user.bio }}</p><br><br>
+    
+    {% if page_user.twitter %}
+        <p><strong>Twitter:</strong> {{ page_user.twitter }}</p><br><br>
+    {% endif %}
+    
+    {% if page_user.instagram %}
+        <p><strong>Instagram:</strong> {{ page_user.instagram }}</p><br><br>
+    {% endif %}
+    
+    {% if page_user.facebook %}
+        <p><strong>Facebook:</strong> {{ page_user.facebook }}</p><br><br>
+    {% endif %}
+
+    {% if user.id == page_user.user.id %}
+        <a href="{% url 'edit_user_profile' page_user.id %}">
+            <button class="button">Edit</button>
+        </a>
+    {% endif %}
+</div>
+{% endblock content %}
