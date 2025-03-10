@@ -5,7 +5,7 @@
 {% block content %}
 <div class="header-bar">
     <h1>Profile</h1>
-    <a href="{% url 'tasks' %}">&#8592; Back</a>
+    <a href="{% url 'home' %}">Home</a>
 </div>
 
 <div class="card-body">
@@ -28,12 +28,6 @@
     
     {% if page_user.facebook %}
         <p><strong>Facebook:</strong> {{ page_user.facebook }}</p><br><br>
-    {% endif %}
-
-    {% if user.id == page_user.user.id %}
-        <a href="{% url 'edit_user_profile' page_user.id %}">
-            <button class="button">Edit</button>
-        </a>
     {% endif %}
 </div>
 {% endblock content %}

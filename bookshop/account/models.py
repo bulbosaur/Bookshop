@@ -20,11 +20,3 @@ class Profile(django.db.models.Model):
 
     def __str__(self):
         return str(self.user)
-
-
-@django.dispatch.receiver(
-    django.db.models.signals.post_save, sender=django.contrib.auth.models.User
-)
-def create_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)

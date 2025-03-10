@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
 from django.views.generic.detail import DetailView
-from django.shortcuts import get_object_or_404
 
 from .models import Profile
 
@@ -18,6 +17,7 @@ class SignUp(View):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            Profile.objects.create(user=user)
             login(request, user)
             return redirect("home")
         return render(request, "registration/signup.html", {"form": form})
@@ -27,9 +27,3 @@ class ShowProfilePage(DetailView):
     model = Profile
     template_name = "account/user_profile.html"
     context_object_name = "page_user"
-
-    def get_context_data(self, *args, **kwargs):
-        context = super(ShowProfilePage, self).get_context_data(*args, **kwargs)
-        page_user = get_object_or_404(Profile, id=self.kwargs["pk"])
-        context["page_user"] = page_user
-        return context
