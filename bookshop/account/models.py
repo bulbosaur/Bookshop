@@ -16,7 +16,7 @@ class Profile(django.db.models.Model):
     instagram = django.db.models.CharField(max_length=50, null=True, blank=True)
 
     class Meta:
-        app_label = 'account'
+        app_label = "account"
 
     def __str__(self):
         return str(self.user)
